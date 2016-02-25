@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @document = Document.all
   end
 
   def new
