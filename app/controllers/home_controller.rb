@@ -2,6 +2,9 @@ class HomeController < ApplicationController
   def index
   end
 
+  def new
+  end
+
   def upload
   	@upload_file = params['file']
   	@file_name = @upload_file.original_filename
@@ -10,23 +13,24 @@ class HomeController < ApplicationController
   	## Upload to public/upload folder
   	File.open(Rails.root.join('public', 'upload', @file_name), 'wb') do |file|
   		file.write(@upload_file.read)
-  		
   	end
 
   	## Save to Document Model
-  	if @file_name.present? && @file_type.present?
-  		@document = Document.new(name: @file_name, type: @file_type)
+		@document = Document.new(name: @file_name, type: @file_type)
 
-  		if @document.save!
-	  		flash[:notice] = "Successfully upload #{@file_name}"
-	  		render 'index'
-  		end
-  	else
-  		redirect_to 'index', flash[:notice] = "Sorry could not upload file"
-  	end
+    respond_to do |format|
+      if @document.save
+        flash[:notice] = "Successfully upload #{@file_name}"
+      else
+        flash[:notice] = "#{@file_name} already exits"
+      end
+       format.html { redirect_to root_path }
 
+    end
 
   end
+
+
 
 
 end
