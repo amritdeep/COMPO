@@ -7,6 +7,14 @@ RSpec.describe HomeController, type: :controller do
       get :index
       expect(response).to have_http_status(:success)
     end
+
+    # it "return to index page" do
+    # 	# binding.pry
+    	
+    # 	post :upload
+    # end
+
+
   end
 
 end
