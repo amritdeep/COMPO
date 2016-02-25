@@ -13,8 +13,18 @@ class HomeController < ApplicationController
   		
   	end
 
-  	flash[:notice] = "Successfully upload #{@file_name}"
-  	render 'index'
+  	## Save to Document Model
+  	if @file_name.present? && @file_type.present?
+  		@document = Document.new(name: @file_name, type: @file_type)
+
+  		if @document.save!
+	  		flash[:notice] = "Successfully upload #{@file_name}"
+	  		render 'index'
+  		end
+  	else
+  		redirect_to 'index', flash[:notice] = "Sorry could not upload file"
+  	end
+
 
   end
 
