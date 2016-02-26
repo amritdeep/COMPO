@@ -7,12 +7,12 @@ require 'csv'
 
 module Scraper
   def check_column(files, file_typ, file_name)
-    @doc_arry = []
+    @content_arry = []
     if file_typ == "text/csv" && file_name.slice(-3..-1) == "csv"    
       file_path = "public/upload/#{file_name}"
       @csv_file = CSV.read(file_path)
       @csv_file.each do |i|
-        @doc_arry << i.compact
+        @content_arry << i.compact
       end
     else
       files.close
@@ -20,13 +20,13 @@ module Scraper
     end
   end
 
-  # def check_doc_extention(document)
-  #   if document.type == "text/csv" && (document.name.slice(-3..-1) == "csv" || )
-  #     document.type = "CSV"
-  #   else
-  #     document.type = ""
-  #   end
-  # end
+  def check_doc_extention(document)
+    if document.type == "text/csv" && document.name.slice(-3..-1) == "csv" 
+      document.type = "CSV"
+    else
+      document.type = ""
+    end
+  end
 
   def check_file_extention_and_upload(files, type, name)
     ## Check the extention
