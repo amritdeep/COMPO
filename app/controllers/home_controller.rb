@@ -45,9 +45,9 @@ class HomeController < ApplicationController
     #     end
     #      format.html { redirect_to root_path }
     #   end
-    # else
-    #   flash[:notice] = "Please upload the file"
-    #   redirect_to root_path
+    else
+      flash[:notice] = "Please upload the file"
+      redirect_to root_path
     end
 
   end
