@@ -7,16 +7,16 @@
 <% if @document.present? %>
 	<table border="1" class="table table-bordered">
 		<tr>
-			<th>ID</th>
-			<th>File Name</th>
-			<th>File Type</th>
+			<th>Document ID</th>
+			<th>Document Name</th>
+			<!-- <th>File Type</th> -->
 		</tr>
 
 		<% @document.each do |document| %>
 			<tr>
-				<td><%= document.id %></td>
-				<td><%= document.name %></td>
+				<!-- <td><%= document.id %></td> -->
 				<td><%= document.type %></td>
+				<td><%= document.name %></td>
 			</tr>
 
 		<% end %>
