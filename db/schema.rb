@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225152438) do
+ActiveRecord::Schema.define(version: 20160226154837) do
+
+  create_table "contents", force: :cascade do |t|
+    t.string   "name"
+    t.string   "content_id"
+    t.integer  "document_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "contents", ["document_id"], name: "index_contents_on_document_id"
 
   create_table "documents", force: :cascade do |t|
     t.string   "name"
