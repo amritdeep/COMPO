@@ -22,6 +22,11 @@ module Keystone
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    ## Configure secret key
     config.secret_key_base = YAML.load(File.open("#{Rails.root}/config/secrets.yml"))[Rails.env]['secret_key_base']
+
+    ## Configure to include module from lib folder
+    config.autoload_paths += %W(#{config.root}/lib)    
   end
 end
