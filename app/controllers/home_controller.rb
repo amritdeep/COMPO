@@ -1,6 +1,3 @@
-# require 'csv'
-# require 'FileUtils'
-
 class HomeController < ApplicationController
   include Scraper
 
@@ -42,7 +39,12 @@ class HomeController < ApplicationController
       flash[:notice] = "Please upload the file"
       redirect_to root_path
     end
+  end
 
+  def show
+    @document = Document.find(params[:id])
+    # @content = Content.where(document_id: paras[:id])
+    @content = Content.where(document_id: @document.id)
   end
 
 end

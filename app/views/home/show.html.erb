@@ -1,0 +1,19 @@
+<%= link_to "Back to Page", root_path %>
+<div class="container">
+	<% if @content.present? %>
+		<table border="1" class="table table-bordered">
+			<tr>
+				<th>Content ID</th>
+				<th>Content Name</th>
+				<th>Document Name</th>
+			</tr>
+			<% @content.each do |content| %>
+				<tr>
+					<td><%= content.content_id %></td>
+					<td><%= content.name %></td>
+					<td><%= @document.name %></td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+</div>

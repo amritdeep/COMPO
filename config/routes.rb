@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'home/index'
   post 'home/upload'
+  get 'home/show/:id' => 'home#show', as: 'content'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -9,7 +9,6 @@ RSpec.describe HomeController, type: :controller do
     end
     
     # it "return to index page" do
-    # 	# binding.pry
     	
     # 	post :upload
     # end

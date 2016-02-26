@@ -10,6 +10,7 @@
 			<!-- <th>ID</th> -->
 			<th>Document Name</th>
 			<th>File Type</th>
+			<th>Content</th>
 		</tr>
 
 		<% @document.each do |document| %>
@@ -17,6 +18,7 @@
 				<!-- <td><%= document.id %></td> -->
 				<td><%= document.name %></td>
 				<td><%= document.type %></td>
+				<td><%= link_to "Check it", content_path(document.id) %></td>
 			</tr>
 
 		<% end %>
