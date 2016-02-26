@@ -35,5 +35,7 @@ bower.json
 .powenv
 .git_back
 .git_lab
+/git_back
+/git_lab
 
 
