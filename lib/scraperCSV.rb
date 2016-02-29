@@ -1,11 +1,11 @@
-# /lib/scraper.rb
+# /lib/scrapercsv.rb
 require 'rubygems'
 require 'pry'
 require 'csv'
 # require 'zip'
 
 
-module Scraper
+module Scrapercsv
   def check_column(files, file_typ, file_name)
     @content_arry = []
     if file_typ == "text/csv" && file_name.slice(-3..-1) == "csv"    
