@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-  include Scraper
+  include Scrapercsv
+  include Scraperzip
 
   def index
     @document = Document.all
@@ -13,7 +14,6 @@ class HomeController < ApplicationController
     if @upload_file.present?
     	@file_name = @upload_file.original_filename
     	@file_type = @upload_file.content_type
-
       check_file_extention_and_upload(@upload_file, @file_type, @file_name)
       check_column(@upload_file, @file_type, @file_name)
 
@@ -31,7 +31,7 @@ class HomeController < ApplicationController
             end
           end
         else
-          flash[:notice] = "#{@file_name} already exits."
+          flash[:notice] = "#{@file_name} doesn't fullfilled the requirement or already exits"
         end
          format.html { redirect_to root_path }
       end
@@ -45,6 +45,20 @@ class HomeController < ApplicationController
     @document = Document.find(params[:id])
     # @content = Content.where(document_id: paras[:id])
     @content = Content.where(document_id: @document.id)
+  end
+
+  def zip_upload
+    @zipfile = params['zipfile']
+    if @zipfile.present?
+      @zipfile_name = @zipfile.original_filename
+      @zipfile_type = @zipfile.content_type
+    binding.pry
+      
+      redirect_to content_path(params[:id])
+    else
+      flash[:notice] = "Please upload the file"
+      redirect_to content_path(params[:id])
+    end    
   end
 
 end

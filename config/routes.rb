@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'home/index'
   post 'home/upload'
+  post 'home/zip_upload/:id' => 'home#zip_upload', as: 'zipupload'
   get 'home/show/:id' => 'home#show', as: 'content'
 
 
