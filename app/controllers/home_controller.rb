@@ -52,7 +52,8 @@ class HomeController < ApplicationController
     if @zipfile.present?
       @zipfile_name = @zipfile.original_filename
       @zipfile_type = @zipfile.content_type
-    binding.pry
+      check_zip_file(@zipfile, @zipfile_type, @zipfile_name)
+    # binding.pry
       
       redirect_to content_path(params[:id])
     else
