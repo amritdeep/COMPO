@@ -75,8 +75,9 @@ class HomeController < ApplicationController
           @content.each do |content|
 
             if entry.name.include? content.name
-              content_name << entry.name.scan(content.name)
-              file_name << entry.name
+              content.document_file_name = entry.name
+              content.document_file_size = entry.size
+              content.save
             end
           end
         end

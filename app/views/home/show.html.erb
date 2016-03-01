@@ -12,6 +12,7 @@
 			<tr>
 				<th>Content ID</th>
 				<th>Content Name</th>
+				<th>CSV Name</th>
 				<th>Document Name</th>
 			</tr>
 			<% @content.each do |content| %>
@@ -19,6 +20,8 @@
 					<td><%= content.content_id %></td>
 					<td><%= content.name %></td>
 					<td><%= @document.name %></td>
+					<%#= binding.pry %>
+					<td><%= content.document_file_name if content.document_file_name.present?%></td>
 				</tr>
 			<% end %>
 		</table>
