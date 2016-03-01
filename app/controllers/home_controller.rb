@@ -78,6 +78,9 @@ class HomeController < ApplicationController
               content.document_file_name = entry.name
               content.document_file_size = entry.size
               content.save
+
+              content_name << entry.name.scan(content.name)
+              file_name << entry.name
             end
           end
         end
