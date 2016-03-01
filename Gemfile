@@ -35,6 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap', '~> 4.0.0.alpha3' # https://github.com/twbs/bootstrap-rubygem
 gem 'simple_form' # https://github.com/plataformatec/simple_form
 gem 'rubyzip'
+gem "paperclip", "~> 4.3"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
