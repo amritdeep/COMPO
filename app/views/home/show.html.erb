@@ -2,10 +2,10 @@
 
 <div class="container">
 
-<%= form_tag({action: :zip_upload}, multipart: true) do %>
-  <%= file_field_tag 'zipfile' %>
-  <%= submit_tag "Upload Zip File", class: "btn btn-primary" %> <br/>
-<% end %>
+	<%= form_tag({action: :zip_upload}, multipart: true) do %>
+	  <%= file_field_tag 'zipfile' %>
+	  <%= submit_tag "Upload & Compare Zip File", class: "btn btn-primary" %> <br/>
+	<% end %>
 
 	<% if @content.present? %>
 		<table border="1" class="table table-bordered">

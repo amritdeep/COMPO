@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post 'home/zip_upload/:id' => 'home#zip_upload', as: 'zipupload'
   get 'home/show/:id' => 'home#show', as: 'content'
 
+  # post 'home/compare/:id' => 'home#compare', as: 'compare'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
